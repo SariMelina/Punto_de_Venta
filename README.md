@@ -9,3 +9,4 @@ $ npm install
 ```bash
 $ npm start
 ```
+## before to run the proyect please change the password to use your database on config.js file
