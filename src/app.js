@@ -8,7 +8,7 @@
 //INICIALIZAR 'express'
 const express = require('express');
 const app = express();
-
+var config = require('./config');
 // LLAMAR AL MODULO MORGAN Y BODY PARSER
 // PARA USAR middlewares
 const morgan = require ('morgan');
@@ -16,7 +16,6 @@ const bodyParser = require('body-parser'); //SE NECESITA PARA ENTENDER LAS PETIC
 
 // POR SI SE SUBE A UN SERVIDOR/NUBE
 // settings
-app.set('port', process.env.PORT || 3000);
 // ESCUCHEN UN PUERTO
 // app.listen(3000);
 
@@ -34,6 +33,6 @@ require('./routes/userRoutes')(app);//rutas definidas
 
 
 // UTILIZAR EL PUERTO
-app.listen(app.get('port'), ()=> {
-    console.log('server on port 3000');
+app.listen(config.port, ()=> {
+    console.log(`server running on http://localhost:${config.port}`);
 });
