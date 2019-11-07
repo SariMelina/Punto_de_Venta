@@ -1,18 +1,11 @@
 // USAR MYSQL
-const mysql = require ('mysql');
-
-connection = mysql.createConnection({
-    host: 'localhost',
-    user : 'root',
-    password: 'Melina123',
-    database: 'Proyecto' 
-});
+const pool = require('../connection/connection')
 
 let userModel = {};
 
 userModel.getUsers = (callback) => {
-    if(connection){
-        connection.query ('SELECT * FROM users ORDER BY idUsu',
+    if(pool){
+        pool.query ('SELECT * FROM users ORDER BY idUsu',
             (err, rows)=>{
                 if(err){
                     throw err;
