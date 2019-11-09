@@ -1,6 +1,6 @@
 # How does it works ?
-> This is a simple rest api developed in node.js, with a little database. This proyect was made for "Artesanaria", a company that sells handcrafts.
-# commands to run the proyect
+> This is a simple rest api developed in node.js, with a little database. This project was made for "Artesanaria", a company that sells handcrafts.
+# commands to run the project
 ### comand to install all dependencies
 ```bash
 $ npm install
@@ -9,4 +9,4 @@ $ npm install
 ```bash
 $ npm start
 ```
-## before to run the proyect please change the password to use your database on config.js file
+## before you run the project, please change the password to use your database on config.js file
