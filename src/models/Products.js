@@ -51,4 +51,33 @@
      }
  };
 
+ ProductModel.deleteProduct = (idPro, callback) => {
+     if(pool){
+         let sql = `
+         SELECT * FROM productos WHERE idPro = ${pool.escape(idPro)}
+         `;
+
+         pool.query(sql, (err, row) => {
+             if(row){
+                 let sql = `
+                 DELETE FROM productos WHERE idPro = ${idPro}
+                 `;
+                 pool.query(sql, (err, result) => {
+                     if(err){
+                         throw err;
+                     } else{
+                         callback(null, {
+                             msg: 'deleted'
+                         })
+                     }
+                 })
+             } else{
+                 callback(null, {
+                     msg: 'not exists'
+                 })
+             }
+         });
+     }
+ };
+
  module.exports = ProductModel;
