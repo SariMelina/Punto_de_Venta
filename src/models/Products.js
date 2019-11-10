@@ -30,4 +30,25 @@
     }
  }
 
+ ProductModel.updateProduct = (productData, callback) => {
+     if(pool){
+         const sql = `
+         UPDATE productos SET
+         nombrePro = ${pool.escape(productData.nombrePro)},
+         numExis = ${pool.escape(productData.numExis)},
+         precioPro = ${pool.escape(productData.precioPro)}
+         WHERE idPro = ${pool.escape(productData.idPro)}
+         `
+         pool.query(sql, (err, result) => {
+             if(err){
+                 throw err;
+             } else{
+                 callback(null, {
+                     "msg":"success"
+                 });
+             }
+         });
+     }
+ };
+
  module.exports = ProductModel;
