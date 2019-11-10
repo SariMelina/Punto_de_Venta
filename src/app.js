@@ -27,7 +27,7 @@ app.use(bodyParser.json());//entender las peticiones a traves de json
 
 // routes
 require('./routes/userRoutes')(app);//rutas definidas
-
+require('./routes/ProductsRoutes')(app); 
 
 // static files
 
