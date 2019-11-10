@@ -33,4 +33,24 @@ module.exports = function(app){
             }
         })
     });
+
+    app.put('/productos/:idPro', (req, res) => {
+        const productData = {
+            idPro: req.params.idPro,
+            nombrePro: req.body.nombrePro,
+            numExis: req.body.numExis,
+            precioPro: req.body.precioPro
+        };
+
+        productos.updateProduct(productData, (err, data) => {
+            if(data && data.msg){
+                res.json(data)
+            } else{
+                res.json({
+                    success: false,
+                    msg: 'error'
+                })
+            }
+        })
+    });
 }
