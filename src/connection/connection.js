@@ -21,6 +21,9 @@ pool.getConnection((err,connection)=>{
         if(err.code === 'ECONNREFUSED'){
             console.error('DATABASE CONNECTION WAS REFUSED.')
         }
+        if(err.code === 'ER_ACCESS_DENIED_ERROR'){
+            console.error('DATABASE ACCESS DENIED')
+        }
     }
     if(connection){
         console.log('database connection success')
