@@ -42,4 +42,25 @@ userModel.insertUser = (userData, callback)=>{
         })
     }
 } 
+
+userModel.updateUser = (userData, callback) => {
+    if(pool){
+        const sql = `
+        UPDATE users SET 
+        email = ${pool.escape(userData.email)},
+        nombreUsu = ${pool.escape(userData.nombreUsu)},
+        telUsu = ${pool.escape(userData.telUsu)},
+        password = ${pool.escape(userData.password)}
+        WHERE idUSu = ${pool.escape(userData.idUsu)}`
+
+        pool.query(sql, (err , resul) => {
+            if(err){
+                throw err;
+            }else {
+                callback (null, {"msg" : "success"});
+            }
+        });
+    }
+}
+
 module.exports = userModel;
