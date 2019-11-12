@@ -51,4 +51,23 @@ module.exports = function (app){
             }
         })
     });
+    app.put('/users/:idUsu',(req,res)=>{
+        const userData = {
+            idUsu: req.params.idUsu,
+            email: req.body.email,
+            nombreUsu: req.body.nombreUsu,
+            telUsu: req.body.telUsu,
+            password: req.body.password
+        }
+        User.updateUser(userData,(err, data)=>{
+            if(data &&data.msg){
+                res.json(data)
+            }else{
+                res.json({
+                    success: false,
+                    msg:'an error was ocurred'
+                })
+            }
+        });
+    });
 }
