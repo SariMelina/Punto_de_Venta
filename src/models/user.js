@@ -63,7 +63,7 @@ userModel.updateUser = (userData, callback) => {
     }
 };
 
-userModel.deleteUser = (userData, callback) => {
+userModel.deleteUser = (idUsu, callback) => {
     if(pool){
         let sql = `
             SELECT * FROM users WHERE idUsu = ${pool.escape(idUsu)}`
