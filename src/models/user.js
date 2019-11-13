@@ -61,6 +61,23 @@ userModel.updateUser = (userData, callback) => {
             }
         });
     }
-}
+};
+
+userModel.deleteUser = (userData, callback) => {
+    if(pool){
+        let sql = `
+            SELECT * FROM users WHERE idUsu = ${pool.escape(idUsu)}`
+            pool.query(sql, (err, result) => {
+                if(err){
+                    throw err;
+                }else{
+                    callback(null, {msg: 'User Deleted'})
+                }
+            })
+    }else{
+        callback(null, {msg:'User does not exists'})
+    }
+};
+
 
 module.exports = userModel;
