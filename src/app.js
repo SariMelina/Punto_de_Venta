@@ -17,12 +17,7 @@ const express = require('express');
 // PARA USAR middlewares
 const morgan = require('morgan');
 const bodyParser = require('body-parser'); //SE NECESITA PARA ENTENDER LAS PETICIONES 'post'
-const exphbs = require('express-handlebars')
-const path = require('path')
-const flash = require('connect-flash')
-const session = require('express-session')
-const MySQLStore = require('express-mysql-session')
-const passport = require('passport')
+
 
 var config = require('./config');
 
