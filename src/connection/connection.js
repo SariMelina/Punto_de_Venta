@@ -1,6 +1,6 @@
 'use strict'
 const mysql = require('mysql')
-const { database } = require('../connection/connection')
+const { database } = require('../config')
 
 const pool = mysql.createPool(database)
 
