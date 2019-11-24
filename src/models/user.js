@@ -61,7 +61,29 @@ userModel.updateUser = (userData, callback) => {
             }
         });
     }
-}
+};
+
+userModel.deleteUser = (idUsu, callback) => {
+    if(pool){
+        let sql = `
+            SELECT * FROM users WHERE idUsu = ${pool.escape(idUsu)}`
+            pool.query(sql, (err, row) => {
+                if(row){
+                    let sql = `DELETE FROM users WHERE idUsu =${idUsu}`;
+                    pool.query(sql, (err,result)=>{
+                        if(err){
+                            throw err  
+                        }else{
+                            callback(null,{msg:'User deleted'})
+                        }
+                    })
+                }else{
+                    callback(null, {msg: 'This user does not exits'})
+                }
+            })
+    }
+};
+
 
 userModel.deleteUser = (idUsu , callback) => {
     if(pool){
