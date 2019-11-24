@@ -60,6 +60,12 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+ALTER TABLE users
+  ADD username VARCHAR(100) NOT NULL;
+
+ALTER TABLE users
+  DROP telUsu;
+
 --
 -- Dumping data for table `productos`
 --
@@ -79,9 +85,9 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `idUsu` int(10) NOT NULL AUTO_INCREMENT,
   `email` varchar(100) NOT NULL,
-  `nombreUsu` varchar(60) NOT NULL,
-  `telUsu` int(10) NOT NULL,
+  `username` varchar(60) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
   PRIMARY KEY (`idUsu`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
@@ -107,3 +113,12 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2019-11-06 16:22:08
+CREATE TABLE `employees` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) NOT NULL,
+  `username` varchar(60) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `fullname` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;

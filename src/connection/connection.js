@@ -1,4 +1,5 @@
 'use strict'
+const util = require('util');
 const mysql = require('mysql')
 const { database } = require('../config')
 
@@ -26,4 +27,7 @@ pool.getConnection((err, connection) => {
 
     return
 })
+
+pool.query = util.promisify(pool.query); //Esta maravillosa línea de código fue la salvación
+
 module.exports = pool
