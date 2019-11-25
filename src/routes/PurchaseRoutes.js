@@ -9,16 +9,23 @@ module.exports = function (app){
         });
     });
 
+    app.get('/compras/:fkPro', (req, res) => {
+        var fkPro = req.params.fkPro;
+        Purchase.getAPurchases(fkPro,(err, data) => {
+            res.status(200).json(data);
+        });
+    });
+
     app.post('/compras', (req, res) => {
         const purchaseData = {
-            fkUSu : req.body.fkUsu,
+            fkUsu : req.body.fkUsu,
             fkPro : req.body.fkPro,
             precio : req.body.precio,
             fecha : req.body.fecha,
             hora : req.body.hora
         };
         Purchase.insertPurchase(purchaseData, (err, data) => {
-            if (data && data.insertId) {
+            if (data && data.msg) {
                 res.json ({
                     success : true,
                     msg : 'Purchase Added',
