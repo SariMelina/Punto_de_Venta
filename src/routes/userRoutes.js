@@ -14,7 +14,7 @@ const User = require('../models/user');
 // OTRA FORMA DE IMPORTAR express
 module.exports = function (app){
 
-    app.get('/', (req, res) => {
+    app.get('/users', (req, res) => {
         User.getUsers((err, data) => {
             res.json(data);
         });
