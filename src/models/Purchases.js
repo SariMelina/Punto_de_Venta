@@ -5,7 +5,23 @@ let PurchaseModel = {};
 
 PurchaseModel.getPurchases = (callback) => {
     if(pool){
-        pool.query('SELECT * FROM compras', (err,rows) =>{
+        pool.query('SELECT * FROM compras ORDER BY fkPro', (err, rows) => {
+            if(err){
+                throw err;
+            } else{
+                callback(null, rows);
+            }
+        })
+    }
+};
+
+PurchaseModel.getAPurchases = (fkPro, callback) => {
+    if(pool){
+        console.log(fkPro);
+        pool.query(`SELECT productos.idPro, productos.nombrePro, compras.fecha, compras.hora, compras.precio 
+                    FROM compras JOIN productos  
+                    ON productos.idPro=compras.fkPro 
+                    WHERE fkPro=${fkPro}`, (err,rows) =>{
             if(err){
                 throw err;
             } else{
@@ -21,10 +37,10 @@ PurchaseModel.insertPurchase = (purchaseData, callback) => {
             if(err){
                 throw err;
             }else{
-                callback(null, {'insertId': result.insertId})
+                callback(null,{msg:"success"})
             }
         });
     }
 };
-
+module.exports=PurchaseModel;
 
