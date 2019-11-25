@@ -15,6 +15,19 @@
          })
      }
  };
+ ProductModel.getAProduct = (idPro, callback) => {
+    if(pool){
+        console.log(idPro);
+        pool.query(`SELECT * FROM productos ORDER BY idPro=${idPro}`, (err, rows) => {
+            if(err){
+                throw err;
+            } else{
+                callback(null, rows);
+            }
+        })
+    }
+};
+
  ProductModel.insertProduct = (productData, callback) => {
     if(pool){
         pool.query('INSERT INTO productos SET ?', productData,
