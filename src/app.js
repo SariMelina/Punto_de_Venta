@@ -53,6 +53,7 @@ app.use((req, res, next) => {
 // Routes, URL
 require('./routes/userRoutes')(app); //rutas definidas
 require('./routes/ProductsRoutes')(app);
+require('./routes/PurchaseRoutes')(app);
 app.use(require('./routes'));
 app.use(require('./routes/authentication'));
 app.use(require('./routes/formulario'));

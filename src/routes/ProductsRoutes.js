@@ -9,7 +9,13 @@ module.exports = function(app){
             res.status(200).json(data);
         });
     });
-
+    app.get('/productos/:idPro', (req, res) => {
+        
+        var idPro = req.params.idPro;
+        productos.getAProduct(idPro,(err,data) => {
+            res.status(200).json(data);
+        });
+    });
     app.post('/productos', (req, res) => {
         const productData = {
             idPro: null,
