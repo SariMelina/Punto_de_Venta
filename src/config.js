@@ -5,7 +5,7 @@ module.exports = {
         connectionLimit: 10,
         host: 'localhost',
         user: 'root',
-        password: 'abc123', //your database pass
+        password: 'adc123', //your database pass
         database: 'Proyecto'
     }
 }
