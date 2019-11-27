@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const pool = require('../config');
+const pool = require('../connection/connection');
 
 router.get('/add', (req, res) => {
     res.render('links/add');
@@ -18,5 +18,11 @@ router.post('/add', async(req, res) => {
     res.send('received');
     console.log(req.body);
 });
+
+router.get('/verificar',async(req,res) =>{
+     const produc = await pool.query('SELECT * FROM productos');
+     console.log(produc);
+     res.send('TOTAL DE PRODUCTOS:');
+ });
 
 module.exports = router;
