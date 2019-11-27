@@ -1,18 +1,17 @@
-
 'use strict'
 
 const productos = require('../models/Products');
 
-module.exports = function(app){
+module.exports = function(app) {
     app.get('/productos', (req, res) => {
         productos.getProduct((err, data) => {
             res.status(200).json(data);
         });
     });
     app.get('/productos/:idPro', (req, res) => {
-        
+
         var idPro = req.params.idPro;
-        productos.getAProduct(idPro,(err,data) => {
+        productos.getAProduct(idPro, (err, data) => {
             res.status(200).json(data);
         });
     });
@@ -25,13 +24,13 @@ module.exports = function(app){
         };
 
         productos.insertProduct(productData, (err, data) => {
-            if(data && data.insertId){
+            if (data && data.insertId) {
                 res.json({
                     success: true,
                     msg: 'Producto insertado correctamente',
                     data: data
                 })
-            } else{
+            } else {
                 res.status(500).json({
                     success: false,
                     msg: 'Error al insertar el producto'
@@ -49,9 +48,9 @@ module.exports = function(app){
         };
 
         productos.updateProduct(productData, (err, data) => {
-            if(data && data.msg){
+            if (data && data.msg) {
                 res.json(data)
-            } else{
+            } else {
                 res.json({
                     success: false,
                     msg: 'error'
@@ -62,12 +61,12 @@ module.exports = function(app){
 
     app.delete('/productos/:idPro', (req, res) => {
         productos.deleteProduct(req.params.idPro, (err, data) => {
-            if(data && data.msg == 'deleted' || data.msg == 'not exists'){
+            if (data && data.msg == 'deleted' || data.msg == 'not exists') {
                 res.json({
                     success: true,
                     data
                 })
-            } else{
+            } else {
                 res.status(500).json({
                     msg: 'Error'
                 })
