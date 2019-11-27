@@ -1,0 +1,19 @@
+<div class="container p-4">
+    <h1 class="text-center">TOTAL DE PRODUCTOS</h1>
+    <br></br>
+    <div class="row">
+        
+        {{#each produc}}
+            <div class="col-md-3">
+                <div class="card text-left">
+                    <div class="card body"></div>                
+                        <h5><b>Nombre Producto:</b> {{nombrePro}}</h5>
+                        <h5><b>Numero de existencia:</b> {{numExis}}</h5>
+                        <h5> <b>Precio: </b> ${{precioPro}}</h5>                    
+                </div>
+                <p></p>
+            </div>
+        {{/each}}
+
+    </div>
+</div>
