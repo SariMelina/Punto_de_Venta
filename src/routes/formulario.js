@@ -19,10 +19,9 @@ router.post('/add', async(req, res) => {
     console.log(req.body);
 });
 
-router.get('/verificar',async(req,res) =>{
+router.get('/totalpro',async(req,res) =>{
      const produc = await pool.query('SELECT * FROM productos');
-     console.log(produc);
-     res.send('TOTAL DE PRODUCTOS:');
+     res.render('links/list', {produc});
  });
 
 module.exports = router;
