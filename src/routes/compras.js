@@ -18,7 +18,7 @@ router.post('/nuevacom',async(req,res) => {
         hora
     };
     await pool.query('INSERT INTO compras set ?',[newPur]);
-    res.send('received');
+    res.redirect('http://localhost:3000/totalcom');
     console.log(req.body);
 });
 
