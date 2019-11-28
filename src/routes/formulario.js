@@ -16,7 +16,7 @@ router.post('/add', async(req, res) => {
         precioPro
     };
     await pool.query('INSERT INTO productos set ?', [newProducto]);
-    res.redirect('http://localhost:3000/totalpro');
+    res.redirect('/totalpro');
     console.log(req.body);
 });
 
@@ -25,11 +25,9 @@ router.get('/totalpro',async(req,res) =>{
      res.render('links/list', {produc});
  });
 
- router.get('/eliminar/:idPro', async (req,res)=>{
-    //  const {idPro} = req.params.idPro;
-    //  await pool.query('DELETE FROM productos WHERE idPro= ?',[idPro]);
-    //  res.redirect('/totalpro');
-    console.log(req.params.idPro);
-    res.send('eliminado');
- });
+router.get('/eliminar/:idPro' , async (req,res)=>{
+    const { idPro } = req.params;
+    await pool.query('DELETE FROM productos WHERE idPro = ?',[idPro]);
+    res.redirect('/totalpro');
+});
 module.exports = router;
