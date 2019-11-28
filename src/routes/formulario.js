@@ -8,7 +8,7 @@ router.get('/add', (req, res) => {
 });
 
 router.post('/add', async(req, res) => {
-    const {idPro, nombrePro, numExis, precioPro } = req.body;
+    const { idPro, nombrePro, numExis, precioPro } = req.body;
     const newProducto = {
         //idPro,
         nombrePro,
@@ -16,18 +16,19 @@ router.post('/add', async(req, res) => {
         precioPro
     };
     await pool.query('INSERT INTO productos set ?', [newProducto]);
+    req.flash('success', 'Product saved successfully');
     res.redirect('/totalpro');
-    console.log(req.body);
 });
 
-router.get('/totalpro',async(req,res) =>{
-     const produc = await pool.query('SELECT * FROM productos');
-     res.render('links/list', {produc});
- });
+router.get('/totalpro', async(req, res) => {
+    const produc = await pool.query('SELECT * FROM productos');
+    res.render('links/list', { produc });
+});
 
-router.get('/eliminar/:idPro' , async (req,res)=>{
+router.get('/eliminar/:idPro', async(req, res) => {
     const { idPro } = req.params;
-    await pool.query('DELETE FROM productos WHERE idPro = ?',[idPro]);
+    await pool.query('DELETE FROM productos WHERE idPro = ?', [idPro]);
+    req.flash('success', 'Product deleted successfully');
     res.redirect('/totalpro');
 });
 module.exports = router;
