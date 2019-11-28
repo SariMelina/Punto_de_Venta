@@ -14,6 +14,12 @@
                         <a href="/link/eliminar/{{idPro}}" class="btn btn-danger">Eliminar</a>                
                 </div>
             </div>
+            {{else}}
+            <div class="col-md4 mx-auto">
+               <div class="card cardbody text-center"></div>
+               <p>No hay ningún producto registrado</p>
+               <a href="/add">Agregar nuevo producto</a>
+            </div>
         {{/each}}
 
     </div>
