@@ -8,7 +8,7 @@ router.get('/add', (req, res) => {
 });
 
 router.post('/add', async(req, res) => {
-    const { nombrePro, numExis, precioPro } = req.body;
+    const {idPro, nombrePro, numExis, precioPro } = req.body;
     const newProducto = {
         idPro,
         nombrePro,
@@ -16,7 +16,7 @@ router.post('/add', async(req, res) => {
         precioPro
     };
     await pool.query('INSERT INTO productos set ?', [newProducto]);
-    res.send('received');
+    res.redirect('http://localhost:3000/totalpro');
     console.log(req.body);
 });
 
@@ -25,4 +25,11 @@ router.get('/totalpro',async(req,res) =>{
      res.render('links/list', {produc});
  });
 
+ router.get('/eliminar/:idPro', async (req,res)=>{
+    //  const {idPro} = req.params.idPro;
+    //  await pool.query('DELETE FROM productos WHERE idPro= ?',[idPro]);
+    //  res.redirect('/totalpro');
+    console.log(req.params.idPro);
+    res.send('eliminado');
+ });
 module.exports = router;
