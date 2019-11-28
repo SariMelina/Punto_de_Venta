@@ -17,12 +17,14 @@ router.post('/nuevacom',async(req,res) => {
         hora
     };
     await pool.query('INSERT INTO compras set ?',[newPur]);
-    res.redirect('/totalcom');
+    res.redirect('/profile');
     console.log(req.body);
+    await pool.query('UPDATE productos SET numExis = (numExis - 1) WHERE idPro = ?', [fkPro]);
+    await pool.query('UPDATE compras, productos SET compras.precio = productos.precioPro WHERE productos.idPro = fkPro AND fkPro = ?', [fkPro]);
 });
 
 router.get('/totalcom',async(req,res)=>{
     const vercom = await pool.query('SELECT * FROM compras');
-     res.render('links/totalcom', {vercom});
+    res.render('links/totalcom', {vercom});
 });
 module.exports = router;
