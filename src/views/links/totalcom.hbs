@@ -1,0 +1,20 @@
+<div class="container p-4">
+    <h1 class="text-center">TOTAL DE COMPRAS</h1>
+    <br></br>
+    <div class="row">
+        
+        {{#each vercom}}
+            <div class="col-md-3">
+                <div class="card text-left">
+                    <div class="card body"></div>                
+                        <h5><b>Id Producto:</b> {{fkPro}}</h5>
+                        <h5><b>Fecha:</b> {{fecha}}</h5>
+                        <h5><b>Precio Total:</b> ${{precio}}</h5>
+                        <h5> <b>Hora: </b> {{hora}}</h5>                    
+                </div>
+                <p></p>
+            </div>
+        {{/each}}
+
+    </div>
+</div>

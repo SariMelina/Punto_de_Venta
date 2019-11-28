@@ -57,6 +57,7 @@ require('./routes/PurchaseRoutes')(app);
 app.use(require('./routes'));
 app.use(require('./routes/authentication'));
 app.use(require('./routes/formulario'));
+app.use(require('./routes/compras'));
 
 // Public, Folders that the application can access 
 app.use(express.static(path.join(__dirname, 'public'))); //Search the file 'public'
