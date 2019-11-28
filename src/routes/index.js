@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/vista', (req, res) => {
-    res.send('hola mundo');
+router.get('/', (req, res) => {
+    res.render('index');
 });
 
 module.exports = router;
