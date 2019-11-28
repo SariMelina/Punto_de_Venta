@@ -10,6 +10,7 @@ router.get('/add', (req, res) => {
 router.post('/add', async(req, res) => {
     const { nombrePro, numExis, precioPro } = req.body;
     const newProducto = {
+        idPro,
         nombrePro,
         numExis,
         precioPro
