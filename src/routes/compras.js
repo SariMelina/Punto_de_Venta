@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 const pool = require('../connection/connection');
 
 router.get('/nuevacom',(req, res) =>{
@@ -18,7 +17,7 @@ router.post('/nuevacom',async(req,res) => {
         hora
     };
     await pool.query('INSERT INTO compras set ?',[newPur]);
-    res.redirect('http://localhost:3000/totalcom');
+    res.redirect('/totalcom');
     console.log(req.body);
 });
 
