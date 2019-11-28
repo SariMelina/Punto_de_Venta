@@ -22,8 +22,8 @@ router.post('/nuevacom',async(req,res) => {
     console.log(req.body);
 });
 
-// router.get('/totalcom',async(req,res)=>{
-//     const vercom = await pool.query('SELECT * FROM compras');
-//     res.render('links/')
-// });
+router.get('/totalcom',async(req,res)=>{
+    const vercom = await pool.query('SELECT * FROM compras');
+     res.render('links/totalcom', {vercom});
+});
 module.exports = router;
