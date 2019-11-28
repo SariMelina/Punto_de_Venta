@@ -9,9 +9,9 @@ router.get('/nuevacom',(req, res) =>{
 });
 
 router.post('/nuevacom',async(req,res) => {
-    const {fkUsu, fkPro , fecha , precio, hora} = req.body;
+    const {fkUSu, fkPro , fecha , precio, hora} = req.body;
     const newPur = {
-        fkUsu,
+        fkUSu,
         fkPro,
         precio,
         fecha,
