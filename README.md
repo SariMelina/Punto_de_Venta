@@ -5,7 +5,11 @@
 - Frontend handlebars engine for nodejs implemented
 - User Authentication implemented
 ## Sigin template example
-![]()
+
+![](imageTemplates/Signin.png)
+
+![](imageTemplates/dashboard.png)
+
 # commands to run the project
 ### command to install all dependencies
 ```bash
