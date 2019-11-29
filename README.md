@@ -4,7 +4,7 @@
 
 - Frontend handlebars engine for nodejs implemented
 - User Authentication implemented
-## Sigin template example
+## Signin template example
 
 ![](imageTemplates/Signin.png)
 
