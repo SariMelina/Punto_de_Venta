@@ -59,6 +59,7 @@ app.use(passport.session()); //Save sessions
 //Variables globales
 app.use((req, res, next) => {
     app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
     app.locals.user = req.user; //Volvemos a la variable 'user' global, se puede acceder desde cualquier parte
     next();
 });
