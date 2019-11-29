@@ -7,21 +7,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                {{!{{#if user}}
+                {{#if user}}
                 <li class="nav-item">
                     <a href="/profile" class="nav-link">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a href="/logout" class="nav-link">Logout</a>
                 </li>
-                {{!{{else}}
                 <li class="nav-item">
                     <a href="/signin" class="nav-link">Sign In</a>
                 </li>
                 <li class="nav-item">
                     <a href="/signup" class="nav-link">Sign Up</a>
                 </li>
-                {{!{{/if}}
+                {{/if}}
             </ul>
         </div>
     </div>
