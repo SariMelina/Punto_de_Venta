@@ -1,10 +1,10 @@
 # How does it works ?
 > This is a simple rest api developed in node.js, with a little database. This project was made for "Artesanaria", a company that sells handcrafts.
 ## Features
-
+- This Project was built-in Node js express web framework
 - Frontend handlebars engine for nodejs implemented
 - User Authentication implemented
-## Sigin template example
+## Signin template example
 
 ![](imageTemplates/Signin.png)
 
