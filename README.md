@@ -8,6 +8,7 @@
 
 ![](imageTemplates/Signin.png)
 
+## Dashboard template example
 ![](imageTemplates/dashboard.png)
 
 # commands to run the project
