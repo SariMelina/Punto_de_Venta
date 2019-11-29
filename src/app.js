@@ -17,6 +17,11 @@ const bodyParser = require('body-parser'); //SE NECESITA PARA ENTENDER LAS PETIC
 const exphbs = require('express-handlebars'); // Motor hbs, frontend app
 const path = require('path');
 const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session');
+
+const { database } = require('./config');
 
 var config = require('./config');
 
@@ -38,6 +43,13 @@ app.set('view engine', '.hbs'); //'.hbs motor name'
 
 // Middlewares
 // funciones que se ejecutan cuando se recibe una peticion
+app.use(session({
+    secret: 'huastecsession',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore(database)
+}));
+app.use(flash());
 app.use(morgan('dev')); //utilizar morgan en su configuración de desarrollo dev
 app.use(express.urlencoded({ extended: false })); //It will only allow Strings
 app.use(bodyParser.json()); //entender las peticiones a traves de json
@@ -46,6 +58,8 @@ app.use(passport.session()); //Save sessions
 
 //Variables globales
 app.use((req, res, next) => {
+    app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
     app.locals.user = req.user; //Volvemos a la variable 'user' global, se puede acceder desde cualquier parte
     next();
 });

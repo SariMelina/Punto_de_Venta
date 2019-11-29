@@ -11,8 +11,14 @@
                         <h5><b>Nombre Producto:</b> {{nombrePro}}</h5>
                         <h5><b>Numero de existencia:</b> {{numExis}}</h5>
                         <h5> <b>Precio: </b> ${{precioPro}}</h5>                    
+                        <a href="/eliminar/{{idPro}}" class="btn btn-danger">Eliminar</a>                
                 </div>
-                <p></p>
+            </div>
+            {{else}}
+            <div class="col-md4 mx-auto">
+               <div class="card cardbody text-center"></div>
+               <p>No hay ningún producto registrado</p>
+               <a href="/add">Agregar nuevo producto</a>
             </div>
         {{/each}}
 

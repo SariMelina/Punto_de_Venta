@@ -16,12 +16,12 @@ passport.use('local.signin', new LocalStrategy({
         const user = rows[0];
         const validPassword = await helpers.matchPassword(password, user.password);
         if (validPassword) {
-            done(null, user);
+            done(null, user, req.flash('success', 'Welcome ' + user.username));
         } else {
-            done(null, false);
+            done(null, false, req.flash('message', 'Incorrect password'));
         }
     } else {
-        return done(null, false);
+        return done(null, false, req.flash('message', 'Username does not exits'));
     }
 }));
 
