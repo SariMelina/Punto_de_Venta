@@ -1,5 +1,10 @@
 # How does it works ?
 > This is a simple rest api developed in node.js, with a little database. This project was made for "Artesanaria", a company that sells handcrafts.
+## Features
+
+- Frontend handlebars engine for nodejs implemented
+- User Authentication implemented
+
 # commands to run the project
 ### command to install all dependencies
 ```bash
